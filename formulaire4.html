@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div id="q"><h1>Mon domaine ... </h1></div>
+
+<a href="formulaire5.html" onclick="sauvegarderdomaine('le secteur commerce')">
+    Commerce
+</a>
+
+<a href="formulaire5.html" onclick="sauvegarderdomaine('le secteur informatique')">
+    Informatique
+</a>
+
+<a href="formulaire5.html" onclick="sauvegarderdomaine('le secteur restauration')">
+    Restauration
+</a>
+
+<a href="formulaire5.html" onclick="sauvegarderdomaine('le secteur vente')">
+    Vente
+</a>
+
+<a href="formulaire5.html" onclick="sauvegarderdomaine('le secteur bâtiment')">
+    Bâtiment
+</a>
+
+<a href="formulaire5.html" onclick="sauvegarderdomaine('le secteur santé')">
+    Santé
+</a>
+
+
+   <form onsubmit="sauvegarderdomaineautre()" action="formulaire5.html"> 
+   
+    <label for="domaine" >Autre:</label>
+    <input type="text" id="domaine">
+
+    <button type="submit">Valider</button>
+        </form>
+    
+
+
+
+
+
+    
+<script src="script.js"></script>
+
+</body>
+
+</html>

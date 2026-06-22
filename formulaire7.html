@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes langues</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Mes langues ...</h1>
+
+    <div class="langues" id="listeLangues"></div>
+
+    <div id="zoneNiveau">
+        <h2 id="titreNiveau">Choisis ton niveau</h2>
+
+        <button onclick="choisirNiveau('Débutant')">Débutant</button>
+        <button onclick="choisirNiveau('Intermédiaire')">Intermédiaire</button>
+        <button onclick="choisirNiveau('Avancé')">Avancé</button>
+        <button onclick="choisirNiveau('Courant')">Courant</button>
+        <button onclick="choisirNiveau('Langue maternelle')">Langue maternelle</button>
+    </div>
+
+    <button id="valider-langues" onclick="sauvegarderLanguesFinal()">
+        Valider
+    </button>
+
+    <div id="resultat"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

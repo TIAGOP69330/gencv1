@@ -1,0 +1,271 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+#d1 {
+    color: rgb(0, 0, 0);
+    width: 500;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 100px;
+    width: 600px;
+    margin: auto;
+    border-color: rgb(255, 0, 0);
+    
+}
+
+#d2 {
+     color: rgb(0, 0, 0);
+    width: 500;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 100px;
+    width: 600px;
+    margin: auto;
+    border-color: rgb(0, 0, 0);
+    margin-top: 20px;
+   
+
+
+}
+
+#d3 {
+     text-align: center;
+    margin: auto;
+    margin-top: 20px;
+   }
+
+#cv {
+    width: 150px;
+    border: 2px solid rgb(0, 0, 0);
+    text-align: center;
+}
+
+#d4 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border: 2px solid white;
+    border-radius: 100px;
+    margin: auto;
+    width: 600px;
+    border-color: rgb(0, 0, 0);
+}
+
+#cv:hover {
+    transform: scale(1.05);
+}
+
+#q {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.experiences {
+    border: 2px solid rgb(128, 0, 255);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.experiences label {
+    display: inline-block;
+    width: 100px;
+}
+
+#active1 {
+    position: relative;
+}
+
+#exp {
+    display: block;
+    margin: auto;
+    width: 500px;
+    margin-top: -500px;
+}
+
+.langues {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.langues button {
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.langues button:hover {
+    transform: translateX(5px);
+    background-color: #ddd;
+}
+
+.langues button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#zoneNiveau {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.selectionne {
+    background-color: blue !important;
+    color: white !important;
+}
+
+.formations {
+    border: 2px solid rgb(128, 0, 255);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.formations label {
+    display: inline-block;
+    width: 100px;
+}
+
+#exp2 {
+    display: block;
+    margin: auto;
+    width: 500px;
+    margin-top: -500px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Bouton téléchargement */
+button {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Page CV */
+#cv {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: white;
+    display: flex;
+    overflow: hidden;
+    box-sizing: border-box;
+    color: #0b1f3a;
+}
+
+/* Colonne gauche */
+#colonne-gauche {
+    width: 32%;
+    height: 297mm;
+    background: #062447;
+    color: white;
+    padding: 22mm 8mm;
+    box-sizing: border-box;
+}
+
+#colonne-gauche h2 {
+    font-size: 15px;
+    margin-top: 28px;
+    border-bottom: 2px solid #2f80ed;
+    padding-bottom: 6px;
+    text-align: center;
+}
+
+#colonne-gauche p,
+#colonne-gauche li {
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+#colonne-gauche ul {
+    padding-left: 18px;
+}
+
+/* Colonne droite */
+#colonne-droite {
+    width: 68%;
+    height: 297mm;
+    padding: 25mm 14mm;
+    box-sizing: border-box;
+}
+
+#colonne-droite h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#titreprofil {
+    color: #2f80ed;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 13px;
+}
+
+#profil {
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+#colonne-droite h2 {
+    font-size: 17px;
+    margin-top: 24px;
+    border-bottom: 2px solid #2f80ed;
+    padding-bottom: 6px;
+    text-align: center;
+}
+
+#cv h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+#cv p,
+#cv li {
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.experience-cv,
+.formation-cv {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Qualités */
+#qualites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-left: 0;
+    justify-content: center;
+}
+
+#qualites li {
+    list-style: none;
+    background: #eaf2ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+}

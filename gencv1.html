@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GenCV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button onclick="telechargerPDF()">
+        Télécharger le CV en PDF
+    </button>
+
+    <div id="cv">
+
+        <div id="colonne-gauche">
+
+            <h2>CONTACT</h2>
+            <p id="contact"></p>
+
+            <h2>LANGUES</h2>
+            <ul id="langues"></ul>
+
+            <h2>CENTRES D'INTÉRÊT</h2>
+            <ul id="interets"></ul>
+
+            <h2>PERMIS</h2>
+            <ul id="permis"></ul>
+
+        </div>
+
+        <div id="colonne-droite">
+
+            <h1 id="nomcomplet"></h1>
+            <h3 id="titreprofil"></h3>
+
+            <p id="profil"></p>
+
+            <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
+            <div id="experiences"></div>
+
+            <h2>FORMATION</h2>
+            <div id="formations"></div>
+
+            <h2>QUALITÉS</h2>
+            <ul id="qualites"></ul>
+
+            <h2>DISPONIBILITÉ</h2>
+            <p id="disponibilite"></p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        let cv = recupererCV();
+
+        function emojiInteret(interet) {
+            let emojis = {
+                "Sport": "⚽",
+                "Musique": "🎵",
+                "Voyage": "✈️",
+                "Lecture": "📚",
+                "Cinéma": "🎬",
+                "Cuisine": "🍳",
+                "Jeux vidéo": "🎮",
+                "Photographie": "📷",
+                "Bénévolat": "🤝",
+                "Informatique": "💻",
+                "Automobile": "🚗",
+                "Nature": "🌿",
+                "Animaux": "🐾",
+                "Art": "🎨",
+                "Dessin": "✏️",
+                "Danse": "💃",
+                "Théâtre": "🎭",
+                "Mode": "👕",
+                "Fitness": "🏋️",
+                "Randonnée": "🥾"
+            };
+
+            return emojis[interet] || "•";
+        }
+        function domainePhrase(domaine) {
+
+    let d = domaine.toLowerCase();
+
+    let domainesDu = [
+        "bâtiment",
+        "batiment",
+        "commerce",
+        "tourisme",
+        "transport",
+        "marketing",
+        "management"
+    ];
+
+    let domainesDes = [
+        "ressources humaines",
+        "services"
+    ];
+
+    if (domainesDu.includes(d)) {
+        return "du " + domaine;
+    }
+
+    if (domainesDes.includes(d)) {
+        return "des " + domaine;
+    }
+
+    return "de la " + domaine;
+}
+
+        function creerPhraseProfil(cv) {
+
+    if (cv.jesuis === "etudiant") {
+        return "Étudiant intéressé par " + cv.domaine +
+            ", je recherche un " + cv.objectif +
+            " afin de développer mes compétences et acquérir une expérience professionnelle concrète.";
+    }
+
+    if (cv.jesuis === "lyceen") {
+        return "Lycéen intéressé par " + cv.domaine +
+            ", je recherche un " + cv.objectif +
+            " afin de découvrir le monde professionnel et développer mes premières compétences.";
+    }
+
+    if (cv.jesuis === "jeune diplome") {
+        return "Jeune diplômé intéressé par " + cv.domaine +
+            ", je recherche un " + cv.objectif +
+            " afin de mettre en pratique mes connaissances et débuter mon parcours professionnel.";
+    }
+
+    if (cv.jesuis === "en reconversion") {
+        return "En reconversion vers " + cv.domaine +
+            ", je recherche un " + cv.objectif +
+            " afin de développer de nouvelles compétences et construire un nouveau projet professionnel.";
+    }
+
+    return cv.jesuis +
+        ", intéressé par " + cv.domaine +
+        ", recherche un " + cv.objectif + ".";
+}
+
+        document.getElementById("nomcomplet").innerHTML =
+            cv.prenom + " " + cv.nom;
+
+        document.getElementById("titreprofil").innerHTML =
+            cv.jesuis + " - " + cv.domaine;
+
+        document.getElementById("contact").innerHTML =
+            "📞 " + cv.num + "<br>" +
+            "✉️ " + cv.mail + "<br>" +
+            "📍 " + cv.ville + "<br>" +
+            "🎂 " + cv.age + " ans";
+
+        document.getElementById("profil").innerHTML =
+            creerPhraseProfil(cv);
+
+        cv.langues.forEach(function(l) {
+            let li = document.createElement("li");
+            li.innerHTML = "📘 " + l.langue + " - " + l.niveau;
+            document.getElementById("langues").appendChild(li);
+        });
+
+        cv.interets.forEach(function(i) {
+            let li = document.createElement("li");
+            li.innerHTML = emojiInteret(i) + " " + i;
+            document.getElementById("interets").appendChild(li);
+        });
+
+        cv.permis.forEach(function(p) {
+            let li = document.createElement("li");
+            li.innerHTML = "🚗 " + p;
+            document.getElementById("permis").appendChild(li);
+        });
+
+        cv.experiences.forEach(function(exp) {
+            let bloc = document.createElement("div");
+            bloc.className = "experience-cv";
+
+            bloc.innerHTML =
+                "<h3>" + exp.poste + "</h3>" +
+                "<p><strong>" + exp.entreprise + "</strong> - " + exp.duree + "</p>" +
+                "<p>" + exp.mission + "</p>";
+
+            document.getElementById("experiences").appendChild(bloc);
+        });
+
+        cv.formations.forEach(function(form) {
+            let bloc = document.createElement("div");
+            bloc.className = "formation-cv";
+
+            bloc.innerHTML =
+                "<h3>" + form.diplome + "</h3>" +
+                "<p><strong>" + form.etablissement + "</strong> - " + form.annee + "</p>";
+
+            document.getElementById("formations").appendChild(bloc);
+        });
+
+        cv.qualites.forEach(function(q) {
+            let li = document.createElement("li");
+            li.innerHTML = q;
+            document.getElementById("qualites").appendChild(li);
+        });
+
+        if (cv.disponibilite.type === "a_partir") {
+            document.getElementById("disponibilite").innerHTML =
+                "Disponible à partir du " + cv.disponibilite.dateDebut;
+        }
+
+        if (cv.disponibilite.type === "periode") {
+            document.getElementById("disponibilite").innerHTML =
+                "Disponible du " +
+                cv.disponibilite.datePeriodeDebut +
+                " au " +
+                cv.disponibilite.datePeriodeFin;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div id="q"><h1>je suis ... </h1></div>
+
+    <a href="formulaire4.html" onclick="sauvegarderjesuis('etudiant')">
+    etudiant
+</a>
+
+<a href="formulaire4.html" onclick="sauvegarderjesuis('lyceen')">
+    lyceen
+</a>
+
+<a href="formulaire4.html" onclick="sauvegarderjesuis('jeune diplome')">
+    jeune diplomé
+</a>
+
+<a href="formulaire4.html" onclick="sauvegarderjesuis('en reconversion')">
+    en reconversion
+</a>
+
+   <form onsubmit="sauvegarderjesuisautre()" action="formulaire4.html"> 
+   
+    <label for="jesuis" >Autre:</label>
+    <input type="text" id="jesuis">
+
+    <button type="submit">Valider</button>
+        </form>
+    
+
+
+
+
+
+    
+<script src="script.js"></script>
+
+</body>
+
+</html>
